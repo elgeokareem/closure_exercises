@@ -8,17 +8,20 @@
 
 function rollCall(names) {
   let nameIndex = 0;
-  
-  return function() {
-  	const name = names[nameIndex]
-  	nameIndex++;
-  	
-  	if (nameIndex) {}
-  	return name;
-  }
+
+  return function () {
+    if (nameIndex >= names.length) {
+      return console.log("Everyone accounted for");
+    }
+
+    const name = names[nameIndex];
+
+    nameIndex++;
+    console.log(name);
+  };
 }
 
-const kek = rollCall(["william", "vegas"])
+const kek = rollCall(["william", "vegas"]);
 kek();
 kek();
 kek();
