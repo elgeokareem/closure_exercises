@@ -8,9 +8,13 @@
  */
 
 // CHALLENGE 10
-function defineFirstArg(func, arg) {}
+function defineFirstArg(func, arg) {
+  return function(arg2) {
+    return func(arg, arg2)
+  }
+}
 
 // /*** Uncomment these to check your work! ***/
-// const subtract = function(big, small) { return big - small; };
-// const subFrom20 = defineFirstArg(subtract, 20);
-// console.log(subFrom20(5)); // => should log 15
+const subtract = function(big, small) { return big - small; };
+const subFrom20 = defineFirstArg(subtract, 20);
+console.log(subFrom20(5)); // => should log 15
